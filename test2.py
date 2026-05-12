@@ -104,20 +104,20 @@ d) Return maximum and minimum value from this tuple.
 # else:
 #     print("Not Equal ")
 
-import pandas as pd
-data1={"Rollno":[1,2,3],"Name":["Sujay","Vijay","Anup"],"Marks":[80,90,50]}
-data2={"Rollno":[4,5,6],"Name":["Sujay","Vijay","Anup"],"Marks":[80,90,50]}
+# import pandas as pd
+# data1={"Rollno":[1,2,3],"Name":["Sujay","Vijay","Anup"],"Marks":[80,90,50]}
+# data2={"Rollno":[4,5,6],"Name":["Sujay","Vijay","Anup"],"Marks":[80,90,50]}
 
-df1=pd.DataFrame(data1)
-df2=pd.DataFrame(data2)
-print("Given Sample dataframe ")
-print("*"*45)
-print(df1)
-print("*"*45)
-print(df2)
-print("*"*45)
-cdf=pd.concat([df1,df2],ignore_index=True)
-print("Combained DataFrame")
-print("*"*45)
-print(cdf)
-print()
+# df1=pd.DataFrame(data1)
+# df2=pd.DataFrame(data2)
+# print("Given Sample dataframe ")
+# print("*"*45)
+# print(df1)
+# print("*"*45)
+# print(df2)
+# print("*"*45)
+# cdf=pd.concat([df1,df2],ignore_index=True)
+# print("Combained DataFrame")
+# print("*"*45)
+# print(cdf)
+# print()

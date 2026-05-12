@@ -250,43 +250,94 @@
 # Button(root,text="clear", command=clear).grid(row=4,column=1)
 # root.mainloop()
 
-from tkinter import *
+# from tkinter import *
 
-def  click(value):
-    if value=="C":
-        e.delete(0,END)
-    elif value=="=":
-        exp=e.get()
-        ans=eval(exp)
-        e.delete(0,END)
-        e.insert(0,ans)
+# def  click(value):
+#     if value=="C":
+#         e.delete(0,END)
+#     elif value=="=":
+#         exp=e.get()
+#         ans=eval(exp)
+#         e.delete(0,END)
+#         e.insert(0,ans)
         
+#     else:
+#         e.insert(END,value)
+        
+# root=Tk()
+# root.title("Calculator")
+# root.geometry("250x300")
+
+# e=Entry(root,width=20,font=("Arial",14))
+# e.grid(row=0,column=0,columnspan=4)
+
+# buttons=[
+#     "7","8","9","+",
+#     "4","5","6","*",
+#     "1","2","3","/",
+#     "0",".","=","-",
+#     "C"
+# ]
+
+# row=1
+# col=0
+
+# for b in buttons:
+#     Button(root,text=b,height=2,width=5,command=lambda x=b:click(x)).grid(row=row,column=col,padx=10,pady=10)
+#     col+=1
+#     if col>3:
+#         col=0
+#         row+=1
+
+# root.mainloop()
+
+class BankAccount:
+    def __init__(self):
+        self.balance=0
+    
+    def deposit(self,amount):
+      
+            self.balance=self.balance+amount
+            print("Deposited successfully ",amount)
+            
+    def withdraw(self,amount):
+        self.balance=self.balance-amount
+        print("withdraw ",amount)
+    def display(self):
+      print(self.balance)
+      
+class saving(BankAccount):
+    def __init__(self):
+        super().__init__()
+        self.rate=0
+        
+    def set(self,rate):
+        self.rate=rate
+        
+    def get(self):
+        interest=(self.balance*self.rate)/100
+        self.balance=self.balance+interest
+        print("Interst added ",interest)
+acc=saving()
+
+while True:
+    print("Deposit\nwithdraw\nshow\nset\nget\nexit")
+    ch=int(input("Enter your choice "))
+    
+    if ch==1:
+        amount=float(input("Enter Amount "))
+        acc.deposit(amount)
+    elif ch==2:
+        amount=float(input("Enter Amount "))
+        acc.withdraw(amount)
+    elif ch==3:
+        acc.display()
+    elif ch==4:
+        r=float(input("Set interest "))
+        acc.set(r)
+    elif ch==5:
+        acc.get()
+    elif ch==6:
+        break
     else:
-        e.insert(END,value)
-        
-root=Tk()
-root.title("Calculator")
-root.geometry("250x300")
-
-e=Entry(root,width=20,font=("Arial",14))
-e.grid(row=0,column=0,columnspan=4)
-
-buttons=[
-    "7","8","9","+",
-    "4","5","6","*",
-    "1","2","3","/",
-    "0",".","=","-",
-    "C"
-]
-
-row=1
-col=0
-
-for b in buttons:
-    Button(root,text=b,height=2,width=5,command=lambda x=b:click(x)).grid(row=row,column=col,padx=10,pady=10)
-    col+=1
-    if col>3:
-        col=0
-        row+=1
-
-root.mainloop()
+        print("Invaild choice ")
